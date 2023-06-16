@@ -20,3 +20,13 @@ export const createCow = async (req: Request, res: Response): Promise<void> => {
   };
   
 
+export const getAllCows = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const cows = await CowModel.find();
+    handleResponse(res, 200, 'Cows retrieved successfully', cows);
+  } catch (error) {
+    handleResponse(res, 500, 'Internal Server Error');
+  }
+};
+
+
