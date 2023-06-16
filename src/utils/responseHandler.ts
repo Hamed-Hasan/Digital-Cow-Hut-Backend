@@ -37,3 +37,16 @@ export const responseHandler = {
   },
 };
 
+export const handleResponse = (
+  res: Response,
+  statusCode: number,
+  message: string,
+  data?: any,
+): void => {
+  res.status(statusCode).json({
+    success: true,
+    statusCode,
+    message,
+    data,
+  });
+};
