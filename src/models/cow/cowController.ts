@@ -30,3 +30,20 @@ export const getAllCows = async (req: Request, res: Response): Promise<void> => 
 };
 
 
+
+export const deleteCow = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { id } = req.params;
+    const cow = await CowModel.findByIdAndDelete(id);
+    if (!cow) {
+      throw new APIError(404, 'Cow not found');
+    }
+    handleResponse(res, 200, 'Cow deleted successfully', cow);
+  } catch (error) {
+    if (error instanceof APIError) {
+      handleResponse(res, error.statusCode, error.message);
+    } else {
+      handleResponse(res, 500, 'Internal Server Error');
+    }
+  }
+};
