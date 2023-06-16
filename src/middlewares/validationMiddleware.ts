@@ -14,10 +14,15 @@ export const validateRequest = (schema: z.Schema) => {
           path: err.path.join('.'),
           message: err.message,
         }));
-
-        throw new APIError(400, 'Validation Error', errorMessage);
+      
+        const apiError = new APIError('Validation Error');
+        apiError.errorMessages = errorMessage;
+        next(apiError);
+      } else {
+        next(error);
       }
-      next(error);
+      
+      
     }
   };
 };

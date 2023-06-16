@@ -1,15 +1,39 @@
 import { Response } from 'express';
+import { APIError } from './apiError';
 
-// Utility function for consistent API response formatting
-export const responseHandler = (
-  res: Response,
-  statusCode: number,
-  data: any
-) => {
-  const response = {
-    success: true,
-    data,
-  };
+interface ResponseData {
+  success: boolean;
+  statusCode: number;
+  message: string;
+  data?: any;
+  errorMessages?: any[];
+  stack?: string; // Add stack property
+}
 
-  res.status(statusCode).json(response);
+export const responseHandler = {
+  success: (res: Response, message: string, data?: any): void => {
+    const responseData: ResponseData = {
+      success: true,
+      statusCode: 200,
+      message,
+    };
+
+    if (data) {
+      responseData.data = data;
+    }
+
+    res.json(responseData);
+  },
+  error: (res: Response, error: APIError): void => {
+    const responseData: ResponseData = {
+      success: false,
+      statusCode: error.statusCode || 500,
+      message: error.message || 'Internal Server Error',
+      errorMessages: error.errorMessages || [],
+      stack: process.env.NODE_ENV === 'production' ? undefined : error.stack,
+    };
+
+    res.status(responseData.statusCode).json(responseData);
+  },
 };
+

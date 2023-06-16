@@ -1,10 +1,12 @@
 export class APIError extends Error {
-    public statusCode: number;
+    statusCode: number;
+    errorMessages?: any[];
   
-    constructor(statusCode: number, message: string, public errorMessages: any[]) {
+    constructor(message: string, statusCode?: number, errorMessages?: any[]) {
       super(message);
-      this.statusCode = statusCode;
-      Object.setPrototypeOf(this, APIError.prototype);
+      this.statusCode = statusCode || 500;
+      this.errorMessages = errorMessages || [];
     }
+    
   }
   
