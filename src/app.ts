@@ -1,6 +1,7 @@
-import express, { Application } from 'express';
+import express, { Application, NextFunction, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import httpStatus from 'http-status';
 // import router from './models/user/userRoutes';
 import { errorMiddleware } from './middlewares/errorMiddleware';
 import router from './routes';
@@ -19,5 +20,19 @@ app.use('/api/v1', router);
 app.use(errorMiddleware);
   
   
+
+//handle not found route
+app.use((req: Request, res: Response, next: NextFunction) => {
+    res.status(httpStatus.NOT_FOUND).json({
+      success: false,
+      message: 'Not Found',
+      errorMessages: [
+        {
+          path: req.originalUrl,
+          message: 'API Not Found',
+        },
+      ],
+    });
+  });
 
 export default app;
