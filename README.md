@@ -47,9 +47,9 @@ https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/filter?searchTerm=Cha
 
 **--Orders--**
 
-api/v1/orders (POST)
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/orders (POST)
 
-api/v1/orders (GET)
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/orders (GET)
 
 ## Key Features
 
