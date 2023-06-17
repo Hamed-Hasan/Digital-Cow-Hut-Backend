@@ -20,15 +20,15 @@ https://digital-cow-hut-backend-phi.vercel.app/api/v1/users/648d8fbbd7b3b23c9d15
 **--Cows--**
 
 
-api/v1/cows (POST)
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows (POST)
 
-api/v1/cows (GET)
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows (GET)
 
-api/v1/cows/6177a5b87d32123f08d2f5d4 
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/648d92afd7b3b23c9d15a952 (GET SINGLE COW)
 
-api/v1/cows/6177a5b87d32123f08d2f5d4 (PATCH)
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/648d92afd7b3b23c9d15a952 (PATCH)
 
-api/v1/cows/6177a5b87d32123f08d2f5d4 (DELETE) 
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/648d9362d7b3b23c9d15a958 (DELETE) 
 
 
 **--Pagination and Filtering routes of Cows--**
@@ -67,7 +67,7 @@ api/v1/orders (GET)
 - **MongoDB**: The MongoDB database management system is employed to store and retrieve data efficiently, offering flexibility and scalability for handling cow and user data.
 - **Mongoose**: Mongoose, an Object-Document Mapping (ODM) library, is used to simplify database interactions, schema modeling, and data validation.
 - **TypeScript**: The entire backend codebase is written in TypeScript, providing static typing, better code organization, and improved developer experience.
-- **Jest**: The Jest testing framework is used for writing unit tests and integration tests to ensure code quality, reliability, and maintainability.
+
 
 ## Installation and Usage
 
