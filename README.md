@@ -51,6 +51,7 @@ https://digital-cow-hut-backend-phi.vercel.app/api/v1/orders (POST)
 
 https://digital-cow-hut-backend-phi.vercel.app/api/v1/orders (GET)
 
+
 ## Key Features
 
 - **Advanced Order Creation**: Users can create orders to purchase cows from available listings. The system performs various checks, including verifying cow availability, buyer funds, and validating the input data to ensure accurate and reliable transactions.
@@ -67,6 +68,7 @@ https://digital-cow-hut-backend-phi.vercel.app/api/v1/orders (GET)
 - **MongoDB**: The MongoDB database management system is employed to store and retrieve data efficiently, offering flexibility and scalability for handling cow and user data.
 - **Mongoose**: Mongoose, an Object-Document Mapping (ODM) library, is used to simplify database interactions, schema modeling, and data validation.
 - **TypeScript**: The entire backend codebase is written in TypeScript, providing static typing, better code organization, and improved developer experience.
+
 
 
 ## Installation and Usage
