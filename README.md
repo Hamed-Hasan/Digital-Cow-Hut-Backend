@@ -6,15 +6,15 @@ The Digital Cow Hut Backend is a powerful and scalable backend system built for 
 **--User--**
 
 
-api/v1/auth/signup (POST)
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/users/auth/signup (POST)
 
-api/v1/users (GET)
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/users (GET)
 
-api/v1/users/6177a5b87d32123f08d2f5d4 (Single GET) 
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/users/648d8e48d7b3b23c9d15a93f (Single GET) 
 
-api/v1/users/6177a5b87d32123f08d2f5d4 (PATCH)
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/users/648d8fbbd7b3b23c9d15a946 (PATCH)
 
-api/v1/users/6177a5b87d32123f08d2f5d4 (DELETE) 
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/users/648d8fbbd7b3b23c9d15a946 (DELETE) 
 
 
 **--Cows--**
