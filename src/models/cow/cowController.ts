@@ -3,6 +3,8 @@ import { createCowSchema } from './cowValidation';
 import CowModel, { CowDocument } from './cowModel';
 import { APIError } from '../../utils/apiError';
 import { handleResponse } from '../../utils/responseHandler';
+import { parsePaginationParams } from '../../paginatioHelper/pagination';
+import { buildFilterObject } from '../../paginatioHelper/filter';
 
 export const createCow = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -30,86 +32,30 @@ export const getAllCows = async (req: Request, res: Response): Promise<void> => 
 };
 
 export const getCowsWithFilters = async (req: Request, res: Response): Promise<void> => {
-    try {
-      // Extract query parameters
-      const {
-        page = 1,
-        limit = 10,
-        sortBy = 'createdAt',
-        sortOrder = 'desc',
-        minPrice,
-        maxPrice,
-        location,
-        searchTerm,
-      } = req.query as {
-        page?: string,
-        limit?: string,
-        sortBy?: string,
-        sortOrder?: string,
-        minPrice?: string,
-        maxPrice?: string,
-        location?: string,
-        searchTerm?: string,
-      };
-  
-      // Build filter object
-      const filter: any = {};
-  
-      if (minPrice) {
-        filter.price = { $gte: Number(minPrice) };
-      }
-  
-      if (maxPrice) {
-        filter.price = { ...filter.price, $lte: Number(maxPrice) };
-      }
-  
-      if (location) {
-        filter.location = { $regex: location, $options: 'i' };
-      }
-  
-      if (searchTerm) {
-        filter.$or = [
-          { location: { $regex: searchTerm, $options: 'i' } },
-          { breed: { $regex: searchTerm, $options: 'i' } },
-          { category: { $regex: searchTerm, $options: 'i' } },
-        ];
-      }
-  
-      // Parse page and limit values
-      const pageNumber = Number(page);
-      const pageSize = Number(limit);
-  
-      // Calculate skip value
-      const skip = (pageNumber - 1) * pageSize;
-  
-      // Sort options
-      const sortOptions: Record<string, any> = {};
-      sortOptions[sortBy as string] = sortOrder === 'asc' ? 1 : -1;
-  
-      // Execute query with pagination
-      const cows: CowDocument[] = await CowModel.find(filter)
-        .sort(sortOptions)
-        .skip(skip)
-        .limit(pageSize);
-  
-      // Count total documents
-      const totalDocs: number = await CowModel.countDocuments(filter);
-  
-      // Calculate total pages
-      const totalPages: number = Math.ceil(totalDocs / pageSize);
-  
-      // Prepare response data
-      const response = {
-        docs: cows,
-        totalDocs,
-        totalPages,
-      };
-  
-      handleResponse(res, 200, 'Cows retrieved successfully', response);
-    } catch (error) {
-      handleResponse(res, 500, 'Internal Server Error');
-    }
-  };
+  try {
+    const { skip, pageSize, sortOptions } = parsePaginationParams(req);
+    const filter = buildFilterObject(req);
+
+    const cows: CowDocument[] = await CowModel.find(filter)
+      .sort(sortOptions)
+      .skip(skip)
+      .limit(pageSize);
+
+    const totalDocs: number = await CowModel.countDocuments(filter);
+    const totalPages: number = Math.ceil(totalDocs / pageSize);
+
+    const response = {
+      docs: cows,
+      totalDocs,
+      totalPages,
+    };
+
+    handleResponse(res, 200, 'Cows retrieved successfully', response);
+  } catch (error) {
+    handleResponse(res, 500, 'Internal Server Error');
+  }
+};
+
 export const getCowById = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
