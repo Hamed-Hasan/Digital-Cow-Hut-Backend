@@ -34,15 +34,15 @@ https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/648d9362d7b3b23c9d15a
 **--Pagination and Filtering routes of Cows--**
 
 
-api/v1/cows?pag=1&limit=10
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/filter?pag=1&limit=10
 
-api/v1/cows?sortBy=price&sortOrder=asc
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/filter?sortBy=price&sortOrder=asc
 
-api/v1/cows?minPrice=20000&maxPrice=70000
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/filter?minPrice=2000&maxPrice=70000
 
-api/v1/cows?location=Chattogram
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/filter?location=Chattogram
 
-api/v1/cows?searchTerm=Cha
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/filter?searchTerm=Cha
 
 
 **--Orders--**
