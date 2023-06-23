@@ -1,10 +1,13 @@
 import { Schema, model } from 'mongoose';
+import bcrypt from 'bcrypt';
 import { ADMIN_ROLE } from './constants';
+
+const saltRounds = 10;
 
 const adminSchema = new Schema({
   phoneNumber: { type: String, required: true },
   role: { type: String, default: ADMIN_ROLE },
-  password: { type: String,required: true,select: 0 }, // Exclude password field from query results and database storage
+  password: { type: String, required: true,select: 0 },
   name: {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
@@ -24,6 +27,22 @@ adminSchema.set('toJSON', {
   },
 });
 
+adminSchema.pre('save', async function (next) {
+  if (this.isModified('password')) {
+    try {
+      const hashedPassword = await bcrypt.hash(this.password, saltRounds);
+      this.password = hashedPassword;
+    } catch (error) {
+      return next(error);
+    }
+  }
+  next();
+});
+
+adminSchema.methods.comparePasswords = async function (password: string): Promise<boolean> {
+  const isMatch = await bcrypt.compare(password, this.password);
+  return isMatch;
+};
 
 const Admin = model('Admin', adminSchema);
 

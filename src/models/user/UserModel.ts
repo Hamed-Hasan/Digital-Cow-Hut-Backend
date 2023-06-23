@@ -21,6 +21,7 @@ const UserSchema: Schema<UserDocument> = new Schema<UserDocument>({
   phoneNumber: {
     type: String,
     required: true,
+    index: true, 
   },
   role: {
     type: String,

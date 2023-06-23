@@ -1,13 +1,13 @@
 import { z } from 'zod';
 
 export const createUserSchema = z.object({
-  password: z.string().min(8),
+  password: z.string().min(5),
   role: z.enum(['seller', 'buyer']),
   name: z.object({
     firstName: z.string(),
     lastName: z.string(),
   }),
-  phoneNumber: z.string().min(10),
+  phoneNumber: z.string().min(5),
   address: z.string(),
   budget: z.number().optional(),
   income: z.number().optional(),

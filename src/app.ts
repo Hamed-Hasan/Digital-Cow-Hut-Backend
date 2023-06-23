@@ -5,11 +5,13 @@ import httpStatus from 'http-status';
 // import router from './models/user/userRoutes';
 import { errorMiddleware } from './middlewares/errorMiddleware';
 import router from './routes';
+import cookieParser from 'cookie-parser';
 // Load environment variables from .env file
 dotenv.config();
+
 const app: Application = express();
 app.use(cors());
-
+app.use(cookieParser());
 //parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
