@@ -1,16 +1,22 @@
-interface Name {
+export interface Admin {
+  _id: string;
+  phoneNumber: string;
+  role: string;
+  name: {
     firstName: string;
     lastName: string;
-  }
-  
-  interface Admin {
-    _id: string;
-    phoneNumber: string;
-    role: 'admin';
-    password: string;
-    name: Name;
-    address: string;
-    createdAt: Date;
-    updatedAt: Date;
-  }
-  
+  };
+  address: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface CreateAdminRequest {
+  password: string;
+  name: {
+    firstName: string;
+    lastName: string;
+  };
+  phoneNumber: string;
+  address: string;
+}

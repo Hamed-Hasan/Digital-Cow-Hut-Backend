@@ -2,6 +2,7 @@ import express from 'express';
 import { SellerAndBuyerUser } from '../models/user/userRoutes';
 import { Cows } from '../models/cow/cowRoutes';
 import { OrderTransactions } from '../models/cowOrderTransaction/orderRoutes';
+import { AdminRoutes } from '../models/admin/adminRoutes';
 
 
 const router = express.Router();
@@ -18,6 +19,10 @@ const moduleRoutes = [
   {
     path: '/orders',
     route: OrderTransactions,
+  },
+  {
+    path: '/admins',
+    route: AdminRoutes,
   },
 ];
 
