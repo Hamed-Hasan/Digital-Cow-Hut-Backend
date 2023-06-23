@@ -21,7 +21,7 @@ app.use(errorMiddleware);
   
   
 
-//handle not found route
+//handle not found route for 404
 app.use((req: Request, res: Response, next: NextFunction) => {
     res.status(httpStatus.NOT_FOUND).json({
       success: false,
