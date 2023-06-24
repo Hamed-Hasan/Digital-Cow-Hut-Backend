@@ -9,15 +9,17 @@ import {
   deleteCow,
 } from './cowController';
 import { validateRequest } from '../../middlewares/validationMiddleware';
+import { authenticateToken } from '../auth/authentication';
+import { authorizeRole, authorizeSellerForCow } from '../auth/authorization';
 
 
 const router = express.Router();
 
-router.post('/', validateRequest(createCowSchema), createCow);
-router.get('/', getAllCows);
-router.get('/filter', getCowsWithFilters);
-router.get('/:id', getCowById);
-router.patch('/:id', validateRequest(updateCowSchema), updateCow);
-router.delete('/:id', deleteCow);
+router.post('/', authenticateToken, authorizeRole(['seller']), validateRequest(createCowSchema), createCow);
+router.get('/', authenticateToken, authorizeRole(['admin', 'seller', 'buyer']), getAllCows);
+router.get('/filter', authenticateToken, authorizeRole(['admin', 'seller', 'buyer']), getCowsWithFilters);
+router.get('/:id', authenticateToken, authorizeRole(['admin', 'seller', 'buyer']), getCowById);
+router.patch('/:id', authenticateToken, authorizeSellerForCow, validateRequest(updateCowSchema), updateCow);
+router.delete('/:id', authenticateToken, authorizeSellerForCow, deleteCow);
 
 export const Cows = router;

@@ -7,18 +7,22 @@ import { authorizeAdmin } from '../auth/authorization';
 const router = express.Router();
 
 router.post('/auth/signup', validateRequest(createUserSchema), createUser);
-router.get('/', 
-getAllUsers, authenticateToken, authorizeAdmin
+
+router.get('/', authenticateToken, authorizeAdmin, getAllUsers
 );
-router.get('/:id',
- getSingleUser,authenticateToken, authorizeAdmin,
- );
+
+router.get('/:id',authenticateToken, authorizeAdmin,
+getSingleUser
+);
+
 router.patch('/:id',
- validateRequest(updateUserSchema), updateSingleUser,
+ validateRequest(updateUserSchema),
  authenticateToken, authorizeAdmin,
+  updateSingleUser
  );
-router.delete('/:id', deleteSingleUser,
+router.delete('/:id', 
  authenticateToken, authorizeAdmin,
+ deleteSingleUser
 );
 
 export const SellerAndBuyerUser = router;

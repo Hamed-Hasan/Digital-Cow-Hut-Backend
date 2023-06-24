@@ -13,7 +13,7 @@ export const authenticateToken = (req: AuthenticatedRequest, res: Response, next
 
   try {
     const decoded = verifyToken(token);
-    req.user = decoded;
+    req.user = decoded; // Attach the decoded user information to the request object
     next();
   } catch (error) {
     return res.status(401).json({ success: false, message: 'Authentication failed: Invalid token' });
