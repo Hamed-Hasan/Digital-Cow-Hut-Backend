@@ -3,6 +3,7 @@ import { User } from './interfaces';
 import UserModel from './UserModel';
 import { responseHandler } from '../../utils/responseHandler';
 import { APIError } from '../../utils/apiError';
+import mongoose from 'mongoose';
 
 
 // Create a new User
@@ -32,16 +33,25 @@ export const getAllUsers = async (req: Request, res: Response): Promise<void> =>
 export const getSingleUser = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      throw new APIError('User ID must be a valid ObjectId', 400, ['User ID must be a valid ObjectId']);
+    }
+
     const user = await UserModel.findById(id);
     if (!user) {
-      throw new APIError('User not found', 404);
+      throw new APIError('User not found', 404, ['User not found']);
     }
-    responseHandler.success(res, 'User retrieved successfully', user);
+
+    responseHandler.success(res, 'User retrieved successfully', { user });
   } catch (error) {
-    const apiError = new APIError('Failed to retrieve user', error);
+    const apiError = new APIError('Failed to retrieve user', 400, [error.message]);
     responseHandler.error(res, apiError);
   }
 };
+
+
+
 
 // Update a Single User
 export const updateSingleUser = async (req: Request, res: Response): Promise<void> => {

@@ -19,7 +19,7 @@ router.post('/', authenticateToken, authorizeRole(['seller']), validateRequest(c
 router.get('/', authenticateToken, authorizeRole(['admin', 'seller', 'buyer']), getAllCows);
 router.get('/filter', authenticateToken, authorizeRole(['admin', 'seller', 'buyer']), getCowsWithFilters);
 router.get('/:id', authenticateToken, authorizeRole(['admin', 'seller', 'buyer']), getCowById);
-router.patch('/:id', authenticateToken, authorizeSellerForCow, validateRequest(updateCowSchema), updateCow);
-router.delete('/:id', authenticateToken, authorizeSellerForCow, deleteCow);
+router.patch('/:id', authenticateToken, validateRequest(updateCowSchema), updateCow);
+router.delete('/:id', authenticateToken, authorizeRole(['seller']), deleteCow);
 
 export const Cows = router;
