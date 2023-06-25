@@ -36,8 +36,6 @@ export const handleResponse = (res: Response, statusCode: number, message: strin
 
 
 
-
-
 export const responseHandler = {
   success: (res: Response, message: string, data?: any): void => {
     const responseData: ResponseData = {

@@ -23,7 +23,7 @@ router.patch('/my-profile',
 
 router.post('/auth/signup', validateRequest(createUserSchema), createUser);
 
-router.get('/', authenticateToken, authorizeAdmin, getAllUsers
+router.get('/', authenticateToken, getAllUsers
 );
 
 router.get('/:id',authenticateToken, authorizeAdmin,
@@ -32,7 +32,7 @@ getSingleUser
 
 router.patch('/:id',
  validateRequest(updateUserSchema),
- authenticateToken, authorizeAdmin,
+ authenticateToken, 
   updateSingleUser
  );
 router.delete('/:id', 

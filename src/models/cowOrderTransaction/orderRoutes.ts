@@ -9,7 +9,7 @@ import { getSpecificOrder } from './getSpecificOrder';
 const router = express.Router();
 
 // Get Specific Order
-router.get('/:id', authenticateToken, getSpecificOrder);
+router.get('/:id', authenticateToken, authorizeRole(['admin']), getSpecificOrder);
 
 // Create a new order
 router.post('/', authenticateToken, authorizeRole(['buyer']), createOrder);

@@ -59,10 +59,12 @@ export const getCowsWithFilters = async (req: Request, res: Response): Promise<v
 export const getCowById = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
-    const cow = await CowModel.findById(id);
+    const cow: Cow | null = await getCowById(id); // Assuming getCowById is defined somewhere
+
     if (!cow) {
       throw new APIError(404, 'Cow not found');
     }
+
     handleResponse(res, 200, 'Cow retrieved successfully', cow);
   } catch (error) {
     if (error instanceof APIError) {
@@ -76,7 +78,9 @@ export const getCowById = async (req: Request, res: Response): Promise<void> => 
 export const updateCow = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
-    const validatedData = req.body;
+    const validatedData = req.body
+    console.log(id);
+    console.log(validatedData)
     const cow = await CowModel.findByIdAndUpdate(id, validatedData, { new: true });
     if (!cow) {
       throw new APIError(404, 'Cow not found');
