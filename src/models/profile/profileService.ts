@@ -1,7 +1,7 @@
+import bcrypt from 'bcrypt';
 import { APIError } from '../../utils/apiError';
 import UserModel from '../user/UserModel';
 import { User } from '../user/interfaces';
-
 export class ProfileService {
   // Get Profile Information
   async getProfileInformation(userId: string): Promise<Partial<User>> {
@@ -30,7 +30,7 @@ export class ProfileService {
     // Hash the password if provided
     if (updateData.password) {
       // Hash the password using your preferred hashing algorithm
-      // For example: updateData.password = await bcrypt.hash(updateData.password, 10);
+       updateData.password = await bcrypt.hash(updateData.password, 10);
     }
 
     const updatedUser = await UserModel.findByIdAndUpdate(userId, updateData, { new: true });

@@ -3,9 +3,13 @@ import { createOrder } from './createOrderTransaction';
 import { getOrderHistory } from './orderHistory';
 import { authenticateToken } from '../auth/authentication';
 import { authorizeRole } from '../auth/authorization';
+import { getSpecificOrder } from './getSpecificOrder';
 
 
 const router = express.Router();
+
+// Get Specific Order
+router.get('/:id', authenticateToken, getSpecificOrder);
 
 // Create a new order
 router.post('/', authenticateToken, authorizeRole(['buyer']), createOrder);

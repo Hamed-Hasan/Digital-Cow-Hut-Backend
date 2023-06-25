@@ -9,12 +9,14 @@ const profileService = new ProfileService();
 export const getProfileInformation = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const userId = req.user?._id; // Retrieve the user's ID from the request
-
+   
+    
     if (!userId) {
       throw new APIError('User ID not provided', 400);
     }
 
     const profile = await profileService.getProfileInformation(userId);
+    console.log("🚀 ~ file: profileController.ts:19 ~ getProfileInformation ~ profile:", profile)
 
     responseHandler.success(res, 'User information retrieved successfully', profile);
   } catch (error) {
