@@ -48,7 +48,7 @@ The Digital Cow Hut Backend is a powerful and scalable backend system built for 
 
 **--Need-Token-Orders--**
 
-https://digital-cow-hut-backend-auth.vercel.app/api/v1/orders (POST) Need to cow Id & buyer Id. in the cow must be put unique seller. in buyer must have to enough money. otherwise you may get Error!
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/orders (POST) Need to cow Id & buyer Id. in the cow must be put unique seller. in buyer must have to enough money. otherwise you may get Error!
 
 - https://digital-cow-hut-backend-auth.vercel.app/api/v1/orders (GET)
 
@@ -58,7 +58,7 @@ https://digital-cow-hut-backend-auth.vercel.app/api/v1/orders (POST) Need to cow
 
 **--Admin--**
 
-https://digital-cow-hut-backend-auth.vercel.app/api/v1/admins/create-admin (POST) Need data for admin
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/admins/create-admin (POST) Need data for admin
 
 **--Need-Token-My Profile--**
 
@@ -67,52 +67,9 @@ https://digital-cow-hut-backend-auth.vercel.app/api/v1/admins/create-admin (POST
 - https://digital-cow-hut-backend-auth.vercel.app/api/v1/users/my-profile (PATCH)
 
 
+**--Need-Token-Specific Order--**
 
-<!-- 
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/users/auth/signup (POST)
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/users (GET)
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/users/648d8e48d7b3b23c9d15a93f (Single GET) 
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/users/648d8fbbd7b3b23c9d15a946 (PATCH)
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/users/648d8fbbd7b3b23c9d15a946 (DELETE) 
-
-
-**--Cows--**
-
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows (POST)
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows (GET)
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/648d92afd7b3b23c9d15a952 (GET SINGLE COW)
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/648d92afd7b3b23c9d15a952 (PATCH)
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/648d9362d7b3b23c9d15a958 (DELETE) 
-
-
-**--Pagination and Filtering routes of Cows--**
-
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/filter?pag=1&limit=10
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/filter?sortBy=price&sortOrder=asc
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/filter?minPrice=2000&maxPrice=70000
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/filter?location=Chattogram
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/filter?searchTerm=Cha
-
-
-**--Orders--**
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/orders (POST)
-
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/orders (GET) -->
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/orders/64995b4291f850ea85498fd1 (GET)
 
 
 ## Key Features
