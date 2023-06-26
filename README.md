@@ -5,9 +5,18 @@ The Digital Cow Hut Backend is a powerful and scalable backend system built for 
 ## Live Link: https://digital-cow-hut-backend-auth.vercel.app/api/v1
 
 ## Application Routes:
-**--User--**
+**Auth--User--**
 
 
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/auth/login
+
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/users/auth/signup
+
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/auth/refresh-token
+
+
+
+<!-- 
 https://digital-cow-hut-backend-phi.vercel.app/api/v1/users/auth/signup (POST)
 
 https://digital-cow-hut-backend-phi.vercel.app/api/v1/users (GET)
@@ -51,7 +60,7 @@ https://digital-cow-hut-backend-phi.vercel.app/api/v1/cows/filter?searchTerm=Cha
 
 https://digital-cow-hut-backend-phi.vercel.app/api/v1/orders (POST)
 
-https://digital-cow-hut-backend-phi.vercel.app/api/v1/orders (GET)
+https://digital-cow-hut-backend-phi.vercel.app/api/v1/orders (GET) -->
 
 
 ## Key Features
