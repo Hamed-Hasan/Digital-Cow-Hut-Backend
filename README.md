@@ -31,6 +31,19 @@ The Digital Cow Hut Backend is a powerful and scalable backend system built for 
 - https://digital-cow-hut-backend-auth.vercel.app/api/v1/users/6499652ceca4fdb756c3a915 (PATCH)
 
 - https://digital-cow-hut-backend-auth.vercel.app/api/v1/users/6499652ceca4fdb756c3a915 (DELETE)
+
+
+**--Need-Token-Cows--**
+
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/cows/ (POST) name & age unique as error 'Internal Server Error'
+
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/cows/ (GET)
+
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/cows/649972c22eeea66ab3c36adb (Single GET) 
+
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/cows/649972c22eeea66ab3c36adb (PATCH) name & age unique is Exist as error 'Internal Server Error'
+
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/cows/649972c22eeea66ab3c36adb (DELETE) 
 <!-- 
 https://digital-cow-hut-backend-phi.vercel.app/api/v1/users/auth/signup (POST)
 

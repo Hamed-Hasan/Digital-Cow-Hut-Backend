@@ -16,8 +16,8 @@ export interface CowDocument extends Document {
 }
 
 const CowSchema: Schema<CowDocument> = new Schema<CowDocument>({
-  name: { type: String, required: true,unique: true },
-  age: { type: Number, required: true,unique: true },
+  name: { type: String, required: true },
+  age: { type: Number, required: true },
   price: { type: Number, required: true },
   location: { type: String, enum: Object.values(LocationEnum), required: true },
   breed: { type: String, enum: Object.values(BreedEnum), required: true },
