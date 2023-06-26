@@ -44,6 +44,16 @@ The Digital Cow Hut Backend is a powerful and scalable backend system built for 
 - https://digital-cow-hut-backend-auth.vercel.app/api/v1/cows/649972c22eeea66ab3c36adb (PATCH) name & age unique is Exist as error 'Internal Server Error'
 
 - https://digital-cow-hut-backend-auth.vercel.app/api/v1/cows/649972c22eeea66ab3c36adb (DELETE) 
+
+
+**--Need-Token-Orders--**
+
+https://digital-cow-hut-backend-auth.vercel.app/api/v1/orders (POST) Need to cow Id & buyer Id. in the cow must be put unique seller. in buyer must have to enough money. otherwise you may get Error!
+
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/orders (GET)
+
+
+## Bonus Part
 <!-- 
 https://digital-cow-hut-backend-phi.vercel.app/api/v1/users/auth/signup (POST)
 
