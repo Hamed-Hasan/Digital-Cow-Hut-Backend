@@ -2,7 +2,14 @@
 
 The Digital Cow Hut Backend is a powerful and scalable backend system built for managing the operations of a digital cow marketplace. It provides an advanced platform that facilitates seamless buying and selling of cows online, offering a range of features to enhance user experience and streamline transactions.
 
-## Live Link: https://digital-cow-hut-backend-auth.vercel.app/api/v1
+## Live Link
+
+You can access the live version of the Digital Cow Hut Backend at the following URL:
+
+[Digital Cow Hut Backend Live Link](https://digital-cow-hut-backend-auth.vercel.app/api/v1)
+
+
+
 
 ## Application Routes:
 **Auth--User--**
@@ -72,6 +79,9 @@ The Digital Cow Hut Backend is a powerful and scalable backend system built for 
 - https://digital-cow-hut-backend-auth.vercel.app/api/v1/orders/64995b4291f850ea85498fd1 (GET)
 
 
+
+
+
 ## Key Features
 
 - **Advanced Order Creation**: Users can create orders to purchase cows from available listings. The system performs various checks, including verifying cow availability, buyer funds, and validating the input data to ensure accurate and reliable transactions.
@@ -79,9 +89,12 @@ The Digital Cow Hut Backend is a powerful and scalable backend system built for 
 - **Order History and Tracking**: Users can view their order history, allowing them to track previous purchases and review transaction details such as the cow purchased, buyer information, and transaction timestamps. This feature enhances transparency and provides a comprehensive overview of past transactions.
 - **Error Handling and Exception Management**: The backend includes robust error handling mechanisms to gracefully handle exceptions. It provides meaningful error messages to clients, ensuring a smooth user experience and effective troubleshooting.
 - **API Documentation**: The project offers clear and comprehensive API documentation, providing detailed information about endpoints, request/response formats, and authentication requirements. This documentation simplifies integration with the backend and allows developers to quickly understand and utilize the provided APIs.
+- **Role-based Authentication and Authorization**: The backend incorporates JWT (JSON Web Token) and bcrypt to implement secure authentication and authorization mechanisms. It enforces role-based access control, ensuring that only authorized users can perform certain actions within the system.
 - **TypeScript**: The entire backend codebase is written in TypeScript, a statically typed superset of JavaScript. TypeScript enhances code reliability, improves developer productivity, and provides better code maintainability through static type checking.
 
 ## Technologies Used
+
+The Digital Cow Hut Backend utilizes the following technologies:
 
 - **Node.js**: The backend is built on the Node.js platform, which provides a robust and scalable runtime environment for JavaScript-based applications.
 - **Express.js**: Express.js is utilized as the web application framework to handle routing, request handling, and middleware management.
@@ -89,14 +102,42 @@ The Digital Cow Hut Backend is a powerful and scalable backend system built for 
 - **Mongoose**: Mongoose, an Object-Document Mapping (ODM) library, is used to simplify database interactions, schema modeling, and data validation.
 - **TypeScript**: The entire backend codebase is written in TypeScript, providing static typing, better code organization, and improved developer experience.
 
-
-
 ## Installation and Usage
 
-1. Clone the repository: `git clone git@github.com:Programming-Hero-Web-Course4/l2a3-cow-hut-backend-assignment-Hamed-Hasan.git`
-2. Install dependencies: `npm install`
-3. Configure environment variables.
-4. Build the project: `npm run build`
-5. Start the server: `npm start`
-6. Access the API endpoints as documented in the API documentation.
+To install and run the Digital Cow Hut Backend locally, please follow the instructions below:
 
+1. Clone the repository:
+   ```
+   git clone git@github.com:Programming-Hero-Web-Course4/l2a3-cow-hut-backend-assignment-Hamed-Hasan.git
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+3. Configure environment variables.
+
+4. Build the project:
+   ```
+   npm run build
+   ```
+
+5. Start the server:
+   ```
+   npm start
+   ```
+
+6. Access the API endpoints as documented in the [API documentation](#api-documentation).
+
+## API Documentation
+
+The Digital Cow Hut Backend provides comprehensive API documentation. Please refer to the [API documentation](API_DOCUMENTATION.md) file for detailed information about the available endpoints, request/response formats, and authentication
+
+ requirements.
+
+Feel free to explore the various endpoints and integrate them into your applications.
+
+If you encounter any issues or have questions, please reach out to our support team at support@digitalcowhut.com.
+
+Thank you for using the Digital Cow Hut Backend!
