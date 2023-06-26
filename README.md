@@ -54,6 +54,20 @@ https://digital-cow-hut-backend-auth.vercel.app/api/v1/orders (POST) Need to cow
 
 
 ## Bonus Part
+
+
+**--Admin--**
+
+https://digital-cow-hut-backend-auth.vercel.app/api/v1/admins/create-admin (POST) Need data for admin
+
+**--Need-Token-My Profile--**
+
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/orders (GET)
+
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/users/my-profile (PATCH)
+
+
+
 <!-- 
 https://digital-cow-hut-backend-phi.vercel.app/api/v1/users/auth/signup (POST)
 
