@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { User } from './interfaces';
 import UserModel from './UserModel';
 import { responseHandler } from '../../utils/responseHandler';
@@ -70,16 +70,18 @@ export const updateSingleUser = async (req: Request, res: Response): Promise<voi
 };
 
 // Delete a User
-export const deleteSingleUser = async (req: Request, res: Response): Promise<void> => {
+export const deleteSingleUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { id } = req.params;
     const deletedUser = await UserModel.findByIdAndDelete(id);
     if (!deletedUser) {
-      throw new APIError('User not found', 404);
+      const apiError = new APIError('User not found', 404);
+      throw apiError;
     }
     responseHandler.success(res, 'User deleted successfully', deletedUser);
   } catch (error) {
-    const apiError = new APIError('Failed to delete user', error);
-    responseHandler.error(res, apiError);
+    // next(error);
+    throw new  APIError('User does not deleted', error);
+    
   }
 };

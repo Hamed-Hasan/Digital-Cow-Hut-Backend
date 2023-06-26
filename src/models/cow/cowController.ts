@@ -56,15 +56,32 @@ export const getCowsWithFilters = async (req: Request, res: Response): Promise<v
   }
 };
 
+// export const getCowById = async (req: Request, res: Response): Promise<void> => {
+//   try {
+//     const { id } = req.params;
+//     const cow (id); // Assuming getCowById is defined somewhere
+
+//     if (!cow) {
+//       throw new APIError(404, 'Cow not found');
+//     }
+
+//     handleResponse(res, 200, 'Cow retrieved successfully', cow);
+//   } catch (error) {
+//     if (error instanceof APIError) {
+//       handleResponse(res, error.statusCode, error.message);
+//     } else {
+//       handleResponse(res, 500, 'Internal Server Error');
+//     }
+//   }
+// };
 export const getCowById = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
-    const cow: Cow | null = await getCowById(id); // Assuming getCowById is defined somewhere
+    const cow = await CowModel.findById(id);
 
     if (!cow) {
       throw new APIError(404, 'Cow not found');
     }
-
     handleResponse(res, 200, 'Cow retrieved successfully', cow);
   } catch (error) {
     if (error instanceof APIError) {
@@ -74,7 +91,6 @@ export const getCowById = async (req: Request, res: Response): Promise<void> => 
     }
   }
 };
-
 export const updateCow = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;

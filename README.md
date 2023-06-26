@@ -2,6 +2,8 @@
 
 The Digital Cow Hut Backend is a powerful and scalable backend system built for managing the operations of a digital cow marketplace. It provides an advanced platform that facilitates seamless buying and selling of cows online, offering a range of features to enhance user experience and streamline transactions.
 
+## Live Link: https://digital-cow-hut-backend-auth.vercel.app/api/v1
+
 ## Application Routes:
 **--User--**
 
