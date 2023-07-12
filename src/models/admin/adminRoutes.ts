@@ -6,6 +6,6 @@ import { createAdminHandler, loginAdmin } from './adminController';
 
 const router = Router();
 router.post('/login', loginAdmin);
-router.post('/create-admin', validateRequest(createAdminSchema), createAdminHandler);
+router.post('/create-admin', createAdminHandler);
 
 export const AdminRoutes = router;
