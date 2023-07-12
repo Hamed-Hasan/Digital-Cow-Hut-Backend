@@ -26,7 +26,7 @@ router.patch('/my-profile',
 router.get('/', authenticateToken, getAllUsers
 );
 
-router.get('/:id',authenticateToken, authorizeAdmin,
+router.get('/:id',authenticateToken, 
 getSingleUser
 );
 
@@ -36,7 +36,7 @@ router.patch('/:id',
   updateSingleUser
  );
 router.delete('/:id', 
- authenticateToken, authorizeAdmin,
+ authenticateToken, 
  deleteSingleUser
 );
 
