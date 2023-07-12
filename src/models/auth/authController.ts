@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import UserModel, { UserDocument } from '../user/UserModel';
-import { config } from '../../../config/config';
+import { config } from '../../config/config';
 import { comparePasswords } from './bcryptUtils';
 
 export const loginUser = async (req: Request, res: Response) => {
@@ -82,3 +82,38 @@ const generateRefreshToken = (user: UserDocument): string => {
     expiresIn: config.refreshTokenExpiration,
   });
 };
+
+
+export const changePassword = async (req: Request, res: Response) => {
+  try {
+    const { newPassword } = req.body;
+    const { _id, role } = req.user;
+
+    const user: UserDocument | null = await UserModel.findById(_id).exec();
+
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+
+    // Check if the user has the appropriate role to change the password
+    if (role === 'admin' || role === 'seller' || role === 'buyer') {
+      // Update the password with the new password
+      user.password = newPassword;
+
+      // Hash the new password
+      // const saltRounds = 10;
+      // const hashedPassword = await hashPassword(newPassword, saltRounds);
+      // user.password = hashedPassword;
+
+      await user.save();
+
+      return res.status(200).json({ success: true, message: 'Password changed successfully' });
+    } else {
+      return res.status(403).json({ success: false, message: 'Unauthorized: You do not have permission to change the password' });
+    }
+  } catch (error) {
+    console.error('Change password error:', error);
+    return res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+};
+

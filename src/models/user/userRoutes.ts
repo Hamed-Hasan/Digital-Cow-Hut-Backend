@@ -21,7 +21,7 @@ router.patch('/my-profile',
 
 
 
-router.post('/auth/signup', validateRequest(createUserSchema), createUser);
+// router.post('/auth/signup', validateRequest(createUserSchema), createUser);
 
 router.get('/', authenticateToken, getAllUsers
 );

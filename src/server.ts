@@ -1,7 +1,8 @@
 import { Server } from 'http';
 import app from './app';
 import mongoose from 'mongoose';
-import { DATABASE_URL, PORT } from '../config';
+import { DATABASE_URL, PORT } from './config';
+// import { DATABASE_URL, PORT } from '../config';
 
 let server: Server;
 
