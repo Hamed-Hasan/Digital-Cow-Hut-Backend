@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('/:id', authenticateToken, authorizeRole(['admin']), getSpecificOrder);
 
 // Create a new order
-router.post('/', authenticateToken, createOrder);
+router.post('/',  createOrder);
 
 // Get order history
 router.get('/', authenticateToken, authorizeRole(['admin', 'buyer', 'seller']), getOrderHistory);

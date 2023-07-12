@@ -8,6 +8,7 @@ interface AuthenticatedRequest extends Request {
 export const authorizeRole = (allowedRoles: string[]) => {
   return (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     const { role } = req.user;
+    console.log(role)
     if (allowedRoles.includes(role)) {
       next();
     } else {

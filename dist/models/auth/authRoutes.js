@@ -12,6 +12,7 @@ const userController_1 = require("../user/userController");
 const router = express_1.default.Router();
 router.post('/login', authController_1.loginUser);
 router.post('/signup', userController_1.createUser);
+// router.post('/signup', validateRequest(createUserSchema), createUser);
 router.post('/refresh-token', authController_1.refreshAccessToken);
 router.post('/change-password', authentication_1.authenticateToken, (0, authorization_1.authorizeRole)(['admin', 'seller', 'buyer']), authController_1.changePassword);
 // router.post('/forgot-password', forgetPassword);

@@ -19,7 +19,7 @@ router.get('/my-profile', authentication_1.authenticateToken, (0, authorization_
 router.patch('/my-profile', authentication_1.authenticateToken, (0, authorization_1.authorizeRole)(['buyer', 'seller', 'admin']), (0, validationMiddleware_1.validateRequest)(profileValidation_1.updateProfileSchema), profileController_1.updateProfileInformation);
 // router.post('/auth/signup', validateRequest(createUserSchema), createUser);
 router.get('/', authentication_1.authenticateToken, userController_1.getAllUsers);
-router.get('/:id', authentication_1.authenticateToken, authorization_1.authorizeAdmin, userController_1.getSingleUser);
+router.get('/:id', authentication_1.authenticateToken, userController_1.getSingleUser);
 router.patch('/:id', (0, validationMiddleware_1.validateRequest)(userValidation_1.updateUserSchema), authentication_1.authenticateToken, userController_1.updateSingleUser);
-router.delete('/:id', authentication_1.authenticateToken, authorization_1.authorizeAdmin, userController_1.deleteSingleUser);
+router.delete('/:id', authentication_1.authenticateToken, userController_1.deleteSingleUser);
 exports.SellerAndBuyerUser = router;

@@ -33,11 +33,11 @@ You can access the live version of the Digital Cow Hut Backend at the following 
 
 - https://digital-cow-hut-backend-auth.vercel.app/api/v1/users (GET)
 
-- https://digital-cow-hut-backend-auth.vercel.app/api/v1/users/64993dc7b725e2b116aeeb3f (Single GET)
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/users/64993da1b725e2b116aeeb3d (Single GET)
 
-- https://digital-cow-hut-backend-auth.vercel.app/api/v1/users/6499652ceca4fdb756c3a915 (PATCH)
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/users/64993da1b725e2b116aeeb3d (PATCH)
 
-- https://digital-cow-hut-backend-auth.vercel.app/api/v1/users/6499652ceca4fdb756c3a915 (DELETE)
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/users/64ae9b2e8cd564f469e4714e (DELETE)
 
 
 **--Need-Token-Cows--**
