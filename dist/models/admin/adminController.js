@@ -13,7 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loginAdmin = exports.createAdminHandler = void 0;
-const validationSchemas_1 = require("./validationSchemas");
 const adminService_1 = require("./adminService");
 const responseHandler_1 = require("../../utils/responseHandler");
 const apiError_1 = require("../../utils/apiError");
@@ -21,7 +20,7 @@ const adminModel_1 = __importDefault(require("./adminModel"));
 const jwtUtils_1 = require("../auth/jwtUtils");
 const createAdminHandler = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const validatedData = validationSchemas_1.createAdminSchema.parse(req.body);
+        const validatedData = (req.body);
         const admin = yield (0, adminService_1.createAdmin)(validatedData);
         (0, responseHandler_1.handleResponse)(res, 201, 'Admin created successfully', admin);
     }

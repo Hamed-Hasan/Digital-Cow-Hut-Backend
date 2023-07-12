@@ -76,7 +76,7 @@ You can access the live version of the Digital Cow Hut Backend at the following 
 
 **--Need-Token-Specific Order--**
 
-- https://digital-cow-hut-backend-auth.vercel.app/api/v1/orders/64995b4291f850ea85498fd1 (GET)
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/orders/64aead25d300dbf66d1fd521 (GET)
 
 
 
