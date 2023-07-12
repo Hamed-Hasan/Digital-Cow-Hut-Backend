@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Cows = void 0;
+const express_1 = __importDefault(require("express"));
+const cowValidation_1 = require("./cowValidation");
+const cowController_1 = require("./cowController");
+const validationMiddleware_1 = require("../../middlewares/validationMiddleware");
+const authentication_1 = require("../auth/authentication");
+const authorization_1 = require("../auth/authorization");
+const router = express_1.default.Router();
+router.post('/', authentication_1.authenticateToken, (0, authorization_1.authorizeRole)(['seller']), (0, validationMiddleware_1.validateRequest)(cowValidation_1.createCowSchema), cowController_1.createCow);
+router.get('/', authentication_1.authenticateToken, (0, authorization_1.authorizeRole)(['admin', 'seller', 'buyer']), cowController_1.getAllCows);
+router.get('/filter', authentication_1.authenticateToken, (0, authorization_1.authorizeRole)(['admin', 'seller', 'buyer']), cowController_1.getCowsWithFilters);
+router.get('/:id', authentication_1.authenticateToken, (0, authorization_1.authorizeRole)(['admin', 'seller', 'buyer']), cowController_1.getCowById);
+router.patch('/:id', authentication_1.authenticateToken, (0, authorization_1.authorizeRole)(['seller']), (0, validationMiddleware_1.validateRequest)(cowValidation_1.updateCowSchema), cowController_1.updateCow);
+router.delete('/:id', authentication_1.authenticateToken, (0, authorization_1.authorizeRole)(['seller']), cowController_1.deleteCow);
+exports.Cows = router;
