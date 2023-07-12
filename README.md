@@ -17,7 +17,7 @@ You can access the live version of the Digital Cow Hut Backend at the following 
 
 - https://digital-cow-hut-backend-auth.vercel.app/api/v1/auth/login (POST)
 
-- https://digital-cow-hut-backend-auth.vercel.app/api/v1/users/auth/signup (POST)
+- https://digital-cow-hut-backend-auth.vercel.app/api/v1/auth/signup (POST)
 
 - https://digital-cow-hut-backend-auth.vercel.app/api/v1/auth/refresh-token (POST)
 

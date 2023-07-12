@@ -1,5 +1,5 @@
 import express from 'express';
-import { loginUser, refreshAccessToken, changePassword } from './authController';
+import { loginUser, refreshAccessToken, changePassword} from './authController';
 import { authenticateToken } from './authentication';
 import { authorizeRole } from './authorization';
 import { validateRequest } from '../../middlewares/validationMiddleware';
@@ -11,6 +11,7 @@ const router = express.Router();
 
 router.post('/login', loginUser);
 router.post('/signup',  createUser);
+// router.post('/signup', validateRequest(createUserSchema), createUser);
 router.post('/refresh-token', refreshAccessToken);
 router.post('/change-password', authenticateToken, authorizeRole(['admin', 'seller', 'buyer']), changePassword);
 
