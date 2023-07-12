@@ -15,6 +15,7 @@ const responseHandler_1 = require("../../utils/responseHandler");
 const authorizeRole = (allowedRoles) => {
     return (req, res, next) => {
         const { role } = req.user;
+        console.log(role);
         if (allowedRoles.includes(role)) {
             next();
         }

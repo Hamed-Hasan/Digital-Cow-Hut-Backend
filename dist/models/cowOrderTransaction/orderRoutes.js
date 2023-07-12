@@ -14,7 +14,7 @@ const router = express_1.default.Router();
 // Get Specific Order
 router.get('/:id', authentication_1.authenticateToken, (0, authorization_1.authorizeRole)(['admin']), getSpecificOrder_1.getSpecificOrder);
 // Create a new order
-router.post('/', authentication_1.authenticateToken, createOrderTransaction_1.createOrder);
+router.post('/', createOrderTransaction_1.createOrder);
 // Get order history
 router.get('/', authentication_1.authenticateToken, (0, authorization_1.authorizeRole)(['admin', 'buyer', 'seller']), orderHistory_1.getOrderHistory);
 exports.OrderTransactions = router;
