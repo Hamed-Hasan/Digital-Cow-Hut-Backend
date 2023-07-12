@@ -10,7 +10,7 @@ import { generateAccessToken, generateRefreshToken } from '../auth/jwtUtils';
 
 export const createAdminHandler = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const validatedData = createAdminSchema.parse(req.body);
+    const validatedData = (req.body);
     const admin = await createAdmin(validatedData);
     handleResponse(res, 201, 'Admin created successfully', admin);
   } catch (error: unknown) {
