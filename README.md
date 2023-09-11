@@ -9,7 +9,7 @@ You can access the live version of the Digital Cow Hut Backend at the following 
 [Digital Cow Hut Backend Live Link](https://digital-cow-hut-backend-auth.vercel.app/api/v1)
 
 
-[All routers are checked in Postman](https://crimson-spaceship-339891.postman.co/workspace/ACC-INVENTORY~64e6aad9-d259-40b2-8c4a-b36bf7e55ace/collection/20661145-315a14f6-72cb-4aa3-8e85-3b5d15e0e781?action=share&creator=20661145)
+[API Documentation (Postman)](https://documenter.getpostman.com/view/20661145/2s9YC2zYnB)
 
 ## Application Routes:
 **Auth--User--**
